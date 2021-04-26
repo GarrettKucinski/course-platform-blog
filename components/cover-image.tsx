@@ -5,14 +5,10 @@ type Props = {
   src: string
   slug?: string
 }
+ 
+export default function CoverImage ({ title, src, slug }: Props) {
+  const image = <img src={src} alt={`Cover Image for ${title}`} />
 
-const CoverImage = ({ title, src, slug }: Props) => {
-  const image = (
-    <img
-      src={src}
-      alt={`Cover Image for ${title}`}
-    />
-  )
   return (
     <div>
       {slug ? (
@@ -20,10 +16,8 @@ const CoverImage = ({ title, src, slug }: Props) => {
           <a aria-label={title}>{image}</a>
         </Link>
       ) : (
-        image
+        image        
       )}
     </div>
   )
 }
-
-export default CoverImage

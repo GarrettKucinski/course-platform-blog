@@ -1,23 +1,17 @@
-import Alert from './alert'
+import { ReactNode } from 'react'
 import Footer from './footer'
 import Meta from './meta'
 
 type Props = {
-  preview?: boolean
-  children: React.ReactNode
+  children: ReactNode
 }
 
-const Layout = ({ preview, children }: Props) => {
+export default function Layout ({ children }: Props) {
   return (
     <>
       <Meta />
-      <div className="min-h-screen">
-        <Alert preview={preview} />
-        <main>{children}</main>
-      </div>
+      <main>{children}</main>
       <Footer />
     </>
   )
 }
-
-export default Layout

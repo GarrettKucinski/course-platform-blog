@@ -11,7 +11,7 @@ type Props = {
   allPosts: Post[]
 }
 
-const Index = ({ allPosts }: Props) => {
+export default function Index ({ allPosts }: Props) {
   const heroPost = allPosts[0]
   const morePosts = allPosts.slice(1)
   return (
@@ -22,9 +22,7 @@ const Index = ({ allPosts }: Props) => {
         </Head>
         <Container>
           <Intro />
-          {heroPost && (
-            <HeroPost {...heroPost} />
-          )}
+          {heroPost && <HeroPost {...heroPost} />}
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </Container>
       </Layout>
@@ -32,9 +30,7 @@ const Index = ({ allPosts }: Props) => {
   )
 }
 
-export default Index
-
-export const getStaticProps = async () => {
+export async function getStaticProps () {
   const allPosts = getAllPosts([
     'title',
     'date',
